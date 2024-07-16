@@ -8,4 +8,4 @@ class ImageViewSet(ReadOnlyModelViewSet):
     queryset = Image.objects.all()
     serializer_class = ImageSerializer
     filter_backends = [SearchFilter]
-    search_fields = ['name', 'description']
+    search_fields = ['name', 'description', 'landscape']
