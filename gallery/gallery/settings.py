@@ -27,6 +27,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+CSRF_TRUSTED_ORIGINS=[
+    'https://gallery-860g.onrender.com',
+    'https://anurag-bhatt.me',
+]
+
 
 # Application definition
 
