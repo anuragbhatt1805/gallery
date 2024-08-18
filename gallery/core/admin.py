@@ -23,7 +23,7 @@ class ImageAdmin(admin.ModelAdmin):
 
     def delete_model(self, request, obj=None):
         if obj.image:
-            destroy(obj.image.public_id)
+            destroy(obj.image.split('/')[-1])
         return super().delete_model(request, obj)
 
 admin.site.register(Image, ImageAdmin)
