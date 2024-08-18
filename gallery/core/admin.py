@@ -22,8 +22,11 @@ class ImageAdmin(admin.ModelAdmin):
     ]
 
     def delete_model(self, request, obj=None):
-        if obj.image:
-            destroy(obj.image.split('/')[-1])
+        if obj and obj.image:
+            # Extract the public ID from the image URL
+            public_id = obj.image.name.split('/')[-1].split('.')[0]
+            # Destroy the image from Cloudinary
+            destroy(public_id)
         return super().delete_model(request, obj)
 
 admin.site.register(Image, ImageAdmin)
