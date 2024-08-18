@@ -21,7 +21,7 @@ class ImageAdmin(admin.ModelAdmin):
         })
     ]
 
-    def delete_model(self, request: HttpRequest, obj: Any) -> None:
+    def delete_model(self, request, obj=None):
         if obj.image:
             destroy(obj.image.public_id)
         return super().delete_model(request, obj)
